@@ -34,24 +34,34 @@ even, then take the number from the beginning of the array and print it.
 
 ***********************************************************************/
 debugger
-function printOuterNumsFirst(nums) {
-  if (nums.length === 0) return;
+  function printOuterNumsFirst(nums) {
+    if (nums.length === 0) return;
 
-  // extract the number from the beginning if the length of the array is even
-  // else, extract from the end
-  let num;
-  if (nums.length % 2 === 0) {
-    num = nums.shift();
-  } else {
-    num = nums.pop();
+    // extract the number from the beginning if the length of the array is even
+    // else, extract from the end
+    let num;
+    if (nums.length % 2 === 0) {
+      num = nums.shift();
+    } else {
+      num = nums.pop();
+    }
+
+    // print the extracted number
+    console.log(num);
+
+    // Make a recursive call with the modified nums array.
+    printOuterNumsFirst(nums);
   }
 
-  // print the extracted number
-  console.log(num);
-
-  // Make a recursive call with the modified nums array.
-  printOuterNumsFirst(nums);
-}
+printOuterNumsFirst([1, 2, 3, 4, 5, 6, 7, 8]);
+// 1
+// 8
+// 2
+// 7
+// 3
+// 6
+// 4
+// 5
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
